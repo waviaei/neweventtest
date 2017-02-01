@@ -1,0 +1,14 @@
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Dreamweaver files
+_notes/
+dwsync.xml
+*.LCK
+* - Copy
+* - コピー
+
+# Cache
+.sass_cache/
+node_modules/

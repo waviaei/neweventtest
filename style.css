@@ -1,0 +1,19 @@
+/*
+Theme Name:     Neweventtest
+Theme URI:
+Description:    A test theme for new Event section, using post as event.
+Author:         Toru
+Author URI:
+Template:       twentysixteen
+Version:        0.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/* Change title font and widget colour to easily differentiate from the parent theme (twentysixteen) */
+.site-title, .entry-title, .widget .widget-title {
+  font-family: "Hiragino Sans", Montserrat, "Helvetica Neue", sans-serif;
+}
+.widget {
+  border-top: 4px solid #e02371;
+}

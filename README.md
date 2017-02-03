@@ -4,8 +4,15 @@ A child theme to implement using post-type=post as an event entry. This is a tes
 
 ## Require
 
-- Plugin: [CMB2](https://wordpress.org/plugins-wp/cmb2/)
-- Theme: [Twentysixteen](https://wordpress.org/themes/twentysixteen/)
+### Plugin
+
+- [CMB2](https://wordpress.org/plugins-wp/cmb2/)
+- [smart Archive Page Remove](https://wordpress.org/plugins-wp/smart-archive-page-remove/) -> trying out
+
+### Theme
+
+- [Twentysixteen](https://wordpress.org/themes/twentysixteen/)
+
 
 ## Spec
 

@@ -12,6 +12,16 @@ function twentysixteen_parent_theme_enqueue_styles() {
 }
 
 /**
+ * Custom re-write rules
+ */
+//function postasevent_rewrite_rules( $rules ) {
+//  $newrules = array();
+//  $newrules['archive/[0-9]{4}$'] = //'index.php?meta_key=_postasevent_demo_event_start_datemorderby=meta_value_num&order=asc&';
+//}
+
+
+
+/**
  * Change the order to order by event start date
  */
 

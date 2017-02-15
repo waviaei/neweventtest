@@ -30,8 +30,15 @@ function reorder_postasevent_demo( $query ) {
   if ( is_admin() || ! $query->is_main_query() ){
     return;
   }
-  if ( $query->is_category() ) {
+  if ( $query->is_front_page() ) {
     $query->set( 'order', 'ASC');
+    $query->set( 'orderby', 'meta_value_num');
+    $query->set( 'meta_key', '_postasevent_demo_event_start_date');
+		$query->set( 'meta_value', time() );
+		$query->set( 'meta_compare', '>');
+  }
+	if ( $query->is_category() ) {
+    $query->set( 'order', 'DES');
     $query->set( 'orderby', 'meta_value_num');
     $query->set( 'meta_key', '_postasevent_demo_event_start_date');
   }
@@ -42,22 +49,19 @@ function reorder_postasevent_demo( $query ) {
  * Desplay meta values on the frontend
  */
 
-// Display meta values from CMB2, by hooking to the_content filter
-add_filter( 'the_content', 'display_postasevent_demo' );
-function display_postasevent_demo( $content ) {
-  // Check if we're inside the main loop in a single post page.
-  if ( is_single() && in_the_loop() && is_main_query() ) {
+// Quick and dirty - Display meta values from CMB2. use in content
+function display_postasevent_demo() {
+	echo '<table><tbody>';
+	echo '<tr><th>Event Start Date:</th><td>' . date('F j, Y', get_post_meta( get_the_ID(), '_postasevent_demo_event_start_date', true ) ) . '</td></tr>';
+	echo '<tr><th>Event Start Time:</th><td>' . get_post_meta( get_the_ID(), '_postasevent_demo_event_start_time', true ) . '</td></tr>';
 
-    // Grab the metadata from the database
-    $event_schedule = get_post_meta( get_the_ID(), '_postasevent_demo_event_start_date', true );
-    $start_date = date('F j, Y', $event_schedule );
+	echo '<tr style="background-color:rgba(81, 136, 230, 0.66);"><th>Event End Date:</th><td>' . date('F j, Y', get_post_meta( get_the_ID(), '_postasevent_demo_event_end_date', true ) ) . '</td></tr>';
+	echo '<tr style="background-color:rgba(81, 136, 230, 0.66);"><th>Event End Time:</th><td>' . get_post_meta( get_the_ID(), '_postasevent_demo_event_end_time', true ) . '</td></tr>';
 
-    return $content . esc_html( $start_date );
-
-  }
-  return $content;
+	echo '<tr><th>Registration Deadline Date:</th><td>' . date('F j, Y', get_post_meta( get_the_ID(), '_postasevent_demo_event_reg_date', true ) ) . '</td></tr>';
+	echo '<tr><th>Registration Deadline Time:</th><td>' . get_post_meta( get_the_ID(), '_postasevent_demo_event_reg_time', true ) . '</td></tr>';
+	echo '</tbody></table>';
 }
-
 
 
 
